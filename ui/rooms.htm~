@@ -1,0 +1,13 @@
+<div class="w3-section">
+	<h3>List of Rooms</h3>
+	<h6 class="w3-animate-opacity">{{@message}}</h6>
+	<div ></div>
+	<table id="table" class="w3-table-all w3-hoverable" >
+		<tr>
+			<repeat group="{{@room[0]}}" value="{{@val}}">
+				<th><a href="/user/{{@room[0]['id']}}">as</a>
+			</repeat>
+		</tr>	
+	</table>
+	
+</div>

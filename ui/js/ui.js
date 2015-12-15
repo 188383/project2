@@ -1,0 +1,17 @@
+var dateFrom,dateTo,address;
+
+$(function(){
+	setVariables();
+	initializeElements();
+})
+/**
+	Function sets the variables for the webapp. The variables are initialized
+**/
+function setVariables(){
+	dateFrom = $('#dateFrom');
+	dateTo = $('#dateTo');
+	address = $('#address');
+	
+	dateFrom.datepicker();
+	dateTo.datepicker();
+}

@@ -1,0 +1,27 @@
+[globals]
+
+DEBUG=3
+UI=app/views/
+LOGS=tmp
+AUTOLOAD=app/
+UPLOADS=assets/
+
+
+loginurl = "/login"
+registerurl = "/register"
+
+
+;This ist he route to the database
+db="sqlite:/home/pawel/project2/db/database.sqlite"
+user_id = "admin"
+password = "password"
+; Number of hours before session expires
+expiry=24
+; How timestamps look like on the pages
+time_format="d M Y h:ia"
+; Max size (in KiB) of uploaded file
+max_kb=8192
+; MIME types allowed for uploaded files
+allowed="image/gif","image/jpeg","image/png"
+; Display eurocookie notices
+eurocookie=TRUE

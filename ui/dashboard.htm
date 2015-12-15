@@ -1,0 +1,13 @@
+<div class="w3-row">
+	<!-- <h3>{{@top}}</h3>-->
+	<nav class="w3-sidenav w3-col m2 l2" style="max-width:10%;">
+	<repeat group="{{@dashmenu}}" value="{{@m}}">
+	 <a href="{{@m['href']}}">{{@m['rel']}}</a>
+	 </repeat>
+	 </nav>
+	 <div class="w3-col m9 l9 w3-center" style="display:block;margin-left:10%; max-width:90%;">
+	 	<h3>{{@top}}</h3>
+	 	<include href="{{@subinc}}"/>
+	 </div>
+</div>
+

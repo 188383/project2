@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<include href="{{@head}}"></include>
+</head>
+<body>
+
+<header id="main-header">
+<include href="{{@mainnav}}"></include>
+</header>
+
+<section id="main-section">
+
+<div class="w3-center">
+	<h3>This is the registration page</h3>
+	<form action="{{@register}}" method="POST">
+		<p>
+			<input name="username" type="email"></input><br/>
+			<label for="username">username</input>
+		</p>
+		<p>
+			<input name="password"></input><br/>
+			<label for="password">password</label>
+		</p>
+		<p>
+			<input name="firstname" type="text"></input><br/>
+			<label for="firstname">first name</label>
+		</p>
+		<p>
+			<input name="lastname" type="text"></input><br/>
+			<label for="lastname">last name</label>
+		</p>
+			<button type="submit">register</button>
+	</form>
+</div>
+
+
+</section>
+
+<footer id="main-footer">
+<include href="{{@foot}}"></include>
+</footer>
+</body>
+</html>
