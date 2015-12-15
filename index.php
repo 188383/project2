@@ -7,7 +7,6 @@ $f3=require('lib/base.php');
 */
 require('app/controllers/controller.php');
 require('app/controllers/booking.php');
-require('app/controllers/admin.php');
 require('app/controllers/index.php');
 require('app/controllers/room.php');
 require('app/controllers/user.php');

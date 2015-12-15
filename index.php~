@@ -21,9 +21,7 @@ require('app/models/users.php');
 require('app/models/rooms.php');
 require('app/models/userbookings.php');
 require('app/models/roomratings.php');
-/**
-	load all the views that will be used
-**/
+
 
 
 $f3->set('DEBUG',3);

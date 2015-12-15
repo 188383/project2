@@ -16,6 +16,10 @@ class Index extends Controller{
 		$this->user = new Users($this->db);
 	}
 	
+	function beforeRoute($f3){
+		parent::beforeRoute($f3);
+	}
+	
 	public function index($f3){
 		echo Template::instance()->render('index.htm');
 	}

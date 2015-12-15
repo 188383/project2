@@ -16,25 +16,26 @@ class Controller{
 	
 	**/
 	public function beforeRoute($f3){
+	
+	
 		$user = new Users($this->db);
 		$sessionId = $f3->get('SESSION.userid');
+		$user->load(array('id=?',$sessionId));
 		
-		$user->load(array('id=:id','id=>' . $sessionId));
 		
 		if($user->dry()){
 			$links = array(
 				'home'=>'/',
 				'about'=>'/about',
-				'login'=>'/login',
-				'signup'=>'/register'
+				'login'=>$f3->get('loginurl'),
+				'signup'=>$f3->get('registerurl')
 			);				
 			$f3->set('links',$links);	
 		}else{
-		//
 			$links = array(
 				'home'=>'/',
 				'about'=>'/about',
-				'dashboard'=>'/dashboard',
+				'dashboard'=>$f3->get('dashboardurl'),
 				'logout'=>'/logout'
 			);	
 			

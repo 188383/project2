@@ -12,7 +12,7 @@
 <section id="main-section">
 
 <div class="w3-center">
-	<h3>This is the registration page</h3>
+	<h3>Join Our Network</h3>
 	<form action="<?php echo $register; ?>" method="post">
 		<p>
 			<input name="username" type="email"></input><br/>
