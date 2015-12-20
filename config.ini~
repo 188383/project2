@@ -4,14 +4,8 @@ DEBUG=3
 UI=app/views/
 LOGS=tmp
 AUTOLOAD=app/
-UPLOADS=assets/
+UPLOADS=content/
 
-
-loginurl = "/login"
-registerurl = "/register"
-dashboardurl = "/user?id="
-adminurl = "/admin"
-room = "/newroom"
 
 
 ;This ist he route to the database

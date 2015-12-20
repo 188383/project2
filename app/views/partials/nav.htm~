@@ -1,7 +1,0 @@
-<nav class="w3-topnav w3-blue w3-padding-left-16">
-	<ul>
-		<repeat group="{{@links}}" key="{{@rel}}" value="{{@link}}">
-			<a href="{{@link}}">{{@rel]}}</a>
-		</repeat>
-	</ul>
-</nav>

@@ -1,9 +1,0 @@
-<nav class="w3-topnav w3-blue w3-padding-left-16">
-	<ul>
-		<!--<repeat group="{{@links}}" value="{{@l}}">
-			<a href="{{@l['href']}}">{{@l['rel']}}</a>
-		</repeat>-->
-		<a href="{{@homelink}}">{{@home}}</a>
-		<a href="{{}}">{{@about}}</a>
-	</ul>
-</nav>
