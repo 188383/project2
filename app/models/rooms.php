@@ -5,7 +5,7 @@
 **/
 
 class Rooms extends \DB\SQL\Mapper{
-	function __construct(){
-		parent::__construct(\Base::instance()->get('db','rooms'));
+	function __construct($db){
+		parent::__construct($db,'rooms');
 	}
 }

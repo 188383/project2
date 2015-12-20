@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<include href="{{@head}}"></include>
-</head>
-<body>
-<header id="main-header">
-<include href="{{@mainnav}}"></include>
-</header>
-
-<section id="main-section">
-
-<div class="w3-center">
-	<h3>This is the log in page</h3>
+<div class="w3-center w3-card-4">
+	<h3>Enter Credentials</h3>
 	<form action="{{@login}}" method="post">
 		<p>
 			<input type="email" name="username"></input>
@@ -24,11 +12,3 @@
 		<button type="submit">Login</button><a href="{{@reset}}" class="w3-tiny">forgot password</a>
 	</form>
 </div>
-
-</section>
-
-<footer id="main-footer">
-	<include href="{{@foot}}"></include>
-</footer>
-</body>
-</html>

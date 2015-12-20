@@ -1,18 +1,6 @@
-<!DOCTYPE html>
+<div class="w3-center">
+	<div class="w3-third">
+		<p>This is the about page</p>
+	</div>
 
-<html>
-<head>
-<include href="{{@head}}"></include>
-</head>
-<body>
-<header id="main-header">
-<include href="{{@mainnav}}"></include>
-</header>
-<section id="main-section">
-
-</section>
-<footer id="main-footer">
-<include href="{{@foot}}"></include>
-</footer>
-</body>
-</html>
+</div>

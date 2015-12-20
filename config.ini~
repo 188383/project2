@@ -9,8 +9,9 @@ UPLOADS=assets/
 
 loginurl = "/login"
 registerurl = "/register"
-dashboardurl = "/dashboard"
+dashboardurl = "/user?id="
 adminurl = "/admin"
+room = "/newroom"
 
 
 ;This ist he route to the database

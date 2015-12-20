@@ -1,18 +1,6 @@
-<!DOCTYPE html>
+<div class="w3-center">
+	<div class="w3-third w3-card-4">
+		<p>This is the about page</p>
+	</div>
 
-<html>
-<head>
-<?php echo $this->render($head,$this->mime,get_defined_vars()); ?>
-</head>
-<body>
-<header id="main-header">
-<?php echo $this->render($mainnav,$this->mime,get_defined_vars()); ?>
-</header>
-<section id="main-section">
-
-</section>
-<footer id="main-footer">
-<?php echo $this->render($foot,$this->mime,get_defined_vars()); ?>
-</footer>
-</body>
-</html>
+</div>

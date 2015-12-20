@@ -8,7 +8,6 @@
 class Users extends \DB\SQL\Mapper{
 
 	function __construct($db){
-		
 		parent::__construct($db,'users');
 	}
 

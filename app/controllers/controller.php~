@@ -36,7 +36,6 @@ class Controller{
 				'home'=>'/',
 				'about'=>'/about',
 				'rooms'=>$f3->get('dashboardurl') . $f3->get('SESSION.userid'),
-				'bookings'=>'test',
 				'logout'=>'/logout'
 			);	
 			

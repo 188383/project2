@@ -11,11 +11,13 @@
 class User extends Controller{
 
 	protected $user;	
+	protected $room;
 	protected $audit;
 	protected $bcrypt;
 	function __construct(){
 		parent::__construct();
 		$this->user = new Users($this->db);
+		$this->room = new Rooms($this->db);
 		$this->auth = \Audit::instance();
 		$this->bcrypt = \BCrypt::instance();
 	}
@@ -56,13 +58,44 @@ class User extends Controller{
 		
 	}
 	
+	
+	
 	/**
-		Loggin function. This is the function that logs the user in. If an invalid email is passed,
-		by definition the database is not checked and the user is notified that there is an error.
-		If the user enters the wrong username and password combination, then the user is resent to the 
-		log in page to make sure he/she enters the correct values
+		Destroy the session data
 	**/
-	public function authenticate($f3){
+	
+
+	
+	
+	public function rooms($f3){
+		$this->room->reset();
+		$this->room->load(array('ownerid=?', $f3->get('SESSION.userid')));
+		
+		if($this->room->dry()){
+			echo 'dry';
+		}else{
+			$users = array();
+			$users[$this->room->id] = $this->room->id;
+			while($this->user->skip()){
+				
+			} 
+		}
+	}
+	
+	//generate the add room formula
+	public function addRoom($f3){
+	
+		//echo Template::instance()->render('newroom.htm');
+	}
+	
+	public function listUsers(){
+		$username = null;
+		$firstname = null;
+		$lastname = null;
+		return $this->user->find(array(),array('order'=>'username','limit'=>1));
+	}	
+	
+		public function authenticate($f3){
 		$userdetails = $f3->get('POST');
 		
 		$username = $userdetails['username'];
@@ -82,40 +115,13 @@ class User extends Controller{
 			
 			$f3->set('SESSION.username',$this->user->username);
 			$f3->set('SESSION.userid',$this->user->id);
-			//reroute to dashboard that will be built next
-			//$f3->reroute($f3->get('dashboardurl'));
-			$f3->reroute('/');
+			$f3->reroute('/user?id=' . $f3->get('SESSION.userid') );
 		}catch(Exception $e){
 			echo $e;
 			//handle appropriate errors
 		}
 		
 	}	
-	
-	/**
-		Destroy the session data
-	**/
-	
-	public function logout($f3){
-		$f3->clear('SESSION.username');
-		$f3->clear('SESSION.userid');
-		$f3->reroute($f3->get('loginurl'));		
-	}
-	
-	/**
-		
-	**/
-	
-	public function profile($f3){
-		$vars = $f3->get('GET');
-		
-	}
-	
-	//generate the add room formula
-	public function addRoom($f3){
-	
-		echo Template::instance()->render('newroom.htm');
-	}
 	
 	private function emailValidate($email){
 		return $this->auth->email($email);
@@ -125,6 +131,8 @@ class User extends Controller{
 		return $this->bcrypt->hash($password);
 	}
 	
-		
+	function beforeRoute($f3){
+		parent::beforeRoute($f3);
+	}	
 	
 }

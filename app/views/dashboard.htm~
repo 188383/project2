@@ -7,6 +7,7 @@
 	a seperate file for the header declarations
 -->
 <include href="{{@head}}"></include>
+<script src="/public/js/profileui.js"></script>
 </head>
 <body>
 <!--
@@ -18,20 +19,12 @@
 </header>
 
 <section id="main-section">
-<!--
-	This is the place where the user fills out a form and/or questionaire about the 
-	room that they are putting on offer. 
-	This is purely controlled data
--->
-
-	
+	<include href={{}}/>
 </section>
 
 <footer id="main-footer">
 <include href="{{@foot}}"></include>
 </footer>
-<script>
-	
-</script>
+
 </body>
 </html>

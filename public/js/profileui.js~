@@ -1,0 +1,12 @@
+
+function init(){
+	var main = document.getElementById("main-section");
+	var table = document.createElement("table");
+	main.appendChild(table);	
+	console.log(table);
+}
+
+$(function(){
+	init();
+	
+});

@@ -18,7 +18,7 @@
 </header>
 
 <section id="main-section">
-
+	<?php echo $this->render($body,$this->mime,get_defined_vars()); ?>
 </section>
 
 <footer id="main-footer">
