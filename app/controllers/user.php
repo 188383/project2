@@ -106,6 +106,7 @@ class User extends Controller{
 				$data['lastname'] = $this->user->lastname;
 				$message[count($message)] = $data;
 				$limit = $limit - 1;
+				$this->user->next();
 			}
 			
 		}catch(Exception $e){
