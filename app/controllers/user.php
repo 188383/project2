@@ -9,27 +9,39 @@ class User extends Controller{
 		$this->audit = \Audit::instance();
 		$this->bcrypt = \BCrypt::instance();
 	}
-	
+	/**
+		Creates a new user.
+		
+		Using curl to create the user, remember to add the single quote sign
+	**/	
 	public function create($f3){
 		$post = $f3->get('POST');
 		$message = array();
+		$data = array();
+		$this->user->reset();
 		try{
-			$this->user->reset();
-			$this->user->username = $this->validateEmail($post['username']);
+			
+			$this->user->username = $post['username'];//$this->validateEmail($post['username']);
 			$this->user->password = $this->hashPassword($post['password']);
 			$this->user->firstname = $post['firstname'];
 			$this->user->lastname = $post['lastname'];
 			$this->user->save();
 			
-			$message['id'] = $this->user->id;
-			$message['username'] = $this->user->username;
-			$message['password'] = $this->user->password;
-			$message['firstname'] = $this->user->firstname;
-			$message['lastname'] = $this->user->lastname;
+			
+			
+			$data['id'] = $this->user->id;
+			$data['username'] = $this->user->username;
+			$data['password'] = $this->user->password;
+			$data['firstname'] = $this->user->firstname;
+			$data['lastname'] = $this->user->lastname;
+			$data['success'] = true;
+			
+			$message['data'] = $data;
 			
 		}catch(Exception $e){
 			$message['success'] = false;
 			$message['error'] = $e->getMessage();
+			echo json_encode($message);
 		}
 		
 		echo json_encode($message);
@@ -99,13 +111,12 @@ class User extends Controller{
 		
 		try{
 		
-			while($limit>=0){
+			while(/*$limit>=0*/!$this->user->dry()){
 				$data['id'] = $this->user->id;
 				$data['username'] = $this->user->username;
 				$data['firstname'] = $this->user->firstname;
 				$data['lastname'] = $this->user->lastname;
 				$message[count($message)] = $data;
-				$limit = $limit - 1;
 				$this->user->next();
 			}
 			
@@ -118,7 +129,7 @@ class User extends Controller{
 	}
 	
 	public function validateEmail($email){
-		if(!$this->audit->email($email)) throw new Exception('email');
+		//if($this->audit->email($email)===false) throw new Exception('email');
 		return $email;
 	}
 	
